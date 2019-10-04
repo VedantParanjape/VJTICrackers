@@ -1,4 +1,4 @@
-from flaskblog import db, login_manager
+from VJTICrackersBlog import db, login_manager
 from flask_login import UserMixin
 
 
@@ -15,6 +15,6 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
 
-    def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+    #def __repr__(self):
+     #   return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
