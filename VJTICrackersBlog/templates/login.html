@@ -13,7 +13,7 @@
                             {{ form.hidden_tag() }}
                             <div class="input-field">
                                 <i class="material-icons prefix">email</i>
-                                <!-- <input type="email" id="email"> -->
+                                <!-- <input type="email" id="email" class="validate"> -->
                                 {{ form.email.label(class="form-control-label") }}
                                     {% if form.email.errors %}
                                         {{ form.email(class="form-control form-control-lg is-invalid") }}
@@ -43,8 +43,10 @@
                                     {% endif %}
                                 <!-- <label for="password">Password</label> -->
                             </div>
+                            
                             <div class="input-field center">
-                                <button class="btn">Login</button>
+                                <!-- <button class="btn">Login</button> -->
+                                {{ form.submit(class="btn btn-outline-info") }}
                             </div>
                         </form>
                     </div>
