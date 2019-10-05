@@ -27,11 +27,12 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/about">About</a></li>
-                    {% if current_user.is_authenticated %}
-                        {% if current_user.role=='p' %}
-                            <li><a href="/generate_otp">Generate OTP</a></li>
-                        {% else %}
+                    {% if user.is_authenticated %}
+                        <li>{{user.role}} {{user.name}}</li>
+                        {% if user.role=='d' %}
                             <li><a href="/view_patient_history">Patient History</a></li>
+                        {% else %}
+                            <li><a href="/generate_otp">Generate OTP</a></li>
                         {% endif %} 
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="/logout">Logout</a></li>

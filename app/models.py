@@ -4,14 +4,6 @@ from flask_login import UserMixin
 from hashlib import md5
 from datetime import datetime
 
-@login.user_loader
-def load_patient(id):
-    return Patient.query.get(int(id))
-
-@login.user_loader
-def load_doctor(id):
-    return Doctor.query.get(int(id))
-
 class Patient(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
@@ -25,7 +17,7 @@ class Patient(UserMixin, db.Model):
     location = db.Column(db.String(50))
     patienthistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
     role = db.Column(db.String(1), default='p')
-    otp = db.Column(db.String(20), default=' ', unique=True)
+    otp = db.Column(db.String(20), unique=True)
 
     def __repr__(self):
         return '<Patient {}>'.format(self.name)
@@ -44,9 +36,10 @@ class Doctor(UserMixin ,db.Model):
     location = db.Column(db.String(50), nullable=False)
     degree = db.Column(db.String(20), nullable=False)
     specialisation = db.Column(db.String(30))
+    role = db.Column(db.String(1), default='d')
     # doctorhistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
     # degreeoofpath = db.Column(db.String(30), nullable=False)
-    role = db.Column(db.String(1), default='d')
+    
 
     def __repr__(self):
         return '<Doctor {}>'.format(self.name)
@@ -68,3 +61,11 @@ class PatientHistory(db.Model):
     
     def __repr__(self):
         return '<PatientHistory {}>'.format(self.id)
+
+@login.user_loader
+def load_patient(id):
+    return Patient.query.get(int(id))
+
+@login.user_loader
+def load_doctor(id):
+    return Doctor.query.get(int(id))

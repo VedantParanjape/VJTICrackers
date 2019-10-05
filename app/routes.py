@@ -31,11 +31,13 @@ def doctor_required(function):
 @app.route('/', methods=['GET'])
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    print(current_user.role, current_user.name)
+    return render_template('home.html', user=current_user)
 
 @app.route('/about')
 def about():
     return render_template('about.html')
+
 @app.route('/login', methods=['GET'])
 def login():
     if current_user.is_authenticated:
@@ -46,7 +48,7 @@ def login():
 
     return render_template('login.html', form_patient=form_patient, form_doctor=form_doctor)
 
-@app.route('/login_doctor', methods=['POST', 'GET'])
+@app.route('/login_doctor', methods=['POST'])
 def login_doctor():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -55,10 +57,11 @@ def login_doctor():
 
     if 1 or form_doctor.validate_on_submit():
         doctor = Doctor.query.filter_by(email=form_doctor.email.data).first()
-
+        # print(doctor.role)
         if doctor and doctor.check_password(password=form_doctor.password.data):
             login_user(doctor)
             next_page = request.args.get('next')
+            print(current_user.role, current_user.name)
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login unsuccessful. Please check mail and password')
@@ -74,25 +77,31 @@ def login_doctor():
     #     else:
     #         flash('Login Unsuccessful. Please check email and password', 'danger')
 
-@app.route('/login_patient', methods=['POST', 'GET'])
+@app.route('/login_patient', methods=['POST'])
 def login_patient():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
 
     form_patient = LoginForm()
-
+    
     if  1 or form_patient.validate_on_submit():
         patient = Patient.query.filter_by(email=form_patient.email.data).first()
-
+        
         if patient and patient.check_password(password=form_patient.password.data):
             login_user(patient)
             next_page = request.args.get('next')
+            print(current_user.role, current_user.name)
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login unsuccessful. Please check mail and password')
             return redirect(url_for('login'))
 
     return redirect(url_for('login'))
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
 
 @app.route('/register',methods=['GET'])
 def register():
@@ -104,12 +113,12 @@ def register():
 
     return render_template('register.html', form_patient=form_patient, form_doctor=form_doctor)
 
-@app.route('/register_patient', methods = ['GET','POST'])
+@app.route('/register_patient', methods = ['POST'])
 def register_patient():
     form_patient = PatientRegistrationForm()
 
     if 1 or form_patient.validate_on_submit():
-        patient = Patient(name = form_patient.data, email = form_patient.email.data, 
+        patient = Patient(name = form_patient.name.data, email = form_patient.email.data, 
                           age = form_patient.age.data, gender = form_patient.gender.data,
                           height = form_patient.height.data, weight = form_patient.weight.data,
                           bloodgroup = form_patient.bloodgroup.data, location = form_patient.location.data)
@@ -123,7 +132,7 @@ def register_patient():
 
     return redirect(url_for('home'))    
 
-@app.route('/register_doctor', methods = ['GET', 'POST'])
+@app.route('/register_doctor', methods = ['POST'])
 def register_doctor():
     form_doctor = DoctorRegistrationForm()
      
