@@ -20,7 +20,7 @@ class Patient(UserMixin, db.Model):
     bloodgroup = db.Column(db.String(4))
     location = db.Column(db.String(50))
     patienthistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
-
+    role = db.Column(db.String(1), default='p')
     def __repr__(self):
         return '<Patient {}>'.format(self.name)
 
@@ -40,7 +40,8 @@ class Doctor(UserMixin ,db.Model):
     specialisation = db.Column(db.String(30))
     doctorhistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
     degreeproofpath = db.Column(db.String(30), nullable=False)
-    
+    role = db.Column(db.String(1), default='d')
+
     def __repr__(self):
         return '<Doctor {}>'.format(self.name)
 
