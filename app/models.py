@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
 from datetime import datetime
-
+from app import data
 class Patient(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
@@ -21,6 +21,9 @@ class Patient(UserMixin, db.Model):
 
     def __repr__(self):
         return '<Patient {}>'.format(self.name)
+
+    def get_id(self):
+        return self.id
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -40,9 +43,11 @@ class Doctor(UserMixin ,db.Model):
     # doctorhistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
     # degreeoofpath = db.Column(db.String(30), nullable=False)
     
-
     def __repr__(self):
         return '<Doctor {}>'.format(self.name)
+    
+    def get_id(self):
+        return self.id
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -64,8 +69,13 @@ class PatientHistory(db.Model):
 
 @login.user_loader
 def load_patient(id):
-    return Patient.query.get(int(id))
+    print("userloader called", data.check_type())
+    if data.check_type() == 'doctor':
+        print("userloader: doctor")
+        return Doctor.query.get(int(id))
+    
+    elif data.check_type() == 'patient':
+        print("userloader: patient")
+        return Patient.query.get(int(id))
 
-@login.user_loader
-def load_doctor(id):
-    return Doctor.query.get(int(id))
+

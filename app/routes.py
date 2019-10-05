@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request
-from app import app, db
+from app import app, db, data
 from flask_login import login_required, current_user, login_user, logout_user
 from datetime import datetime
 from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm, AddPatientHistory, AddOtp
@@ -8,30 +8,10 @@ import pyotp
 from functools import wraps
 from sqlalchemy.exc import IntegrityError
 
-def patient_required(function):
-    @wraps(function)
-    def is_patient(*args, **kwargs):
-        if current_user.role == 'p':
-            return True
-
-        else:
-            return False
-    return is_patient
-
-def doctor_required(function):
-    @wraps(function)
-    def is_doctor(*args, **kwargs):
-        if current_user.role == 'd':
-            return True
-
-        else:
-            return False
-    return is_doctor
-
 @app.route('/', methods=['GET'])
 @app.route('/home')
 def home():
-    return render_template('home.html', user=current_user)
+    return render_template('home.html')
 
 @app.route('/about')
 def about():
@@ -50,6 +30,7 @@ def login():
 @app.route('/login_doctor', methods=['POST'])
 def login_doctor():
     if current_user.is_authenticated:
+        print("redirected from login doctor")
         return redirect(url_for('home'))
 
     form_doctor = LoginForm()
@@ -58,10 +39,14 @@ def login_doctor():
         doctor = Doctor.query.filter_by(email=form_doctor.email.data).first()
         # print(doctor.role)
         if doctor and doctor.check_password(password=form_doctor.password.data):
+            print("before doctor login")
             login_user(doctor)
+            print("user logged in as doctor")
+            data.set_type('doctor')
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
+            print('Login unsuccessful. Please check mail and password')
             flash('Login unsuccessful. Please check mail and password')
             return redirect(url_for('login'))
 
@@ -78,6 +63,7 @@ def login_doctor():
 @app.route('/login_patient', methods=['POST'])
 def login_patient():
     if current_user.is_authenticated:
+        print("redirected from login patient")
         return redirect(url_for('home'))
 
     form_patient = LoginForm()
@@ -86,11 +72,15 @@ def login_patient():
         patient = Patient.query.filter_by(email=form_patient.email.data).first()
         
         if patient and patient.check_password(password=form_patient.password.data):
+            print("before patient login")
             login_user(patient)
+            print("user logged in as patient")
+            data.set_type('patient')
             next_page = request.args.get('next')
             
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
+            print('Login unsuccessful. Please check mail and password')
             flash('Login unsuccessful. Please check mail and password')
             return redirect(url_for('login'))
 
@@ -98,6 +88,7 @@ def login_patient():
 
 @app.route('/logout')
 def logout():
+    data.set_type('nil')
     logout_user()
     return redirect(url_for('home'))
 
@@ -157,7 +148,6 @@ def generate_otp():
     otp = pyotp.random_base32()
     
     current_user.otp = otp
-    print(current_user.otp)
     
     try:
         db.session.commit()
@@ -202,4 +192,4 @@ def view_patient_history():
 
     patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()
 
-    return render_template('patient_history.html', patienthistory=PatientHistory.query.filter_by(patient_id=patient.id).all())
+    return render_template('patient_history.html')
