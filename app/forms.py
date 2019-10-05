@@ -43,7 +43,7 @@ class DoctorRegistrationForm(FlaskForm):
     degree = StringField('Degree', validators=[DataRequired()])
     specialisation = StringField('Specialisation', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
-    picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
+    # picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
 
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',

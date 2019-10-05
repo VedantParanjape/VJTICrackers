@@ -39,7 +39,7 @@ class Doctor(UserMixin ,db.Model):
     degree = db.Column(db.String(20), nullable=False)
     specialisation = db.Column(db.String(30))
     doctorhistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
-    degreeproofpath = db.Column(db.String(30), nullable=False)
+    # degreeoofpath = db.Column(db.String(30), nullable=False)
     role = db.Column(db.String(1), default='d')
 
     def __repr__(self):
