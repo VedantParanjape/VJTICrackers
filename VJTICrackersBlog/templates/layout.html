@@ -16,19 +16,19 @@
   </style>
 </head>
 <body>
-<!--Header-->
-    <header class="indigo lighten-2">
-        <nav class="nav-wrapper transparent">
+<!-- navbar -->
+    <header>
+        <nav class="nav-wrapper indigo lighten-2">
             <div class="container">
-                <a href="" class="brand-logo">VJTI Crackers</a>
+                <a href="" class="brand-logo">Photo Ninja</a>
                 <a href="" class="sidenav-trigger" data-target="mobile-menu">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/login">Contact</a></li>
-                    <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-tooltip="Instagram">
+                    <li><a href="#photos">Photos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class=" tooltipped btn-floating btn-small indigo darken-4" data-tooltip="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a></li>
                     <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-tooltip="Facebook">
@@ -39,9 +39,9 @@
                     </a></li>
                 </ul>
                 <ul class="sidenav grey lighten-2" id="mobile-menu">
-                        <li><a href="/home">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/login">Contact</a></li>
+                        <li><a href="#">Photos</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -82,7 +82,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script>
         $(document).ready(function(){
-            
+           $('.sidenav').sidenav(); 
         });
     </script>
 </body>

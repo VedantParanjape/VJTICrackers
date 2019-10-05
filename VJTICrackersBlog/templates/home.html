@@ -1,4 +1,14 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h1>Home page</h1>
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="img/stars.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			M.Parallax.init(document.querySelectorAll('.parallax'), {});
+		});
+	</script>
 {% endblock %}
