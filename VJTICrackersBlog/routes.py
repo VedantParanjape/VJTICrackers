@@ -59,3 +59,6 @@ def logout():
 def profile():
     return render_template('profile.html', title='Profile', case='pat_profile')
 
+# @app.route("/verify")
+# def verify():
+#     return render_template('verify_otp.html')
