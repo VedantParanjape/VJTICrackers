@@ -12,13 +12,21 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   <!-- <link rel="stylesheet" href="language.css"> -->
   <title>VJTI Crackers</title>
-  <style>
-    
+  
+  <!--    ADDITION    -->
+  <style> 
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        padding:0;
+    }
   </style>
 </head>
 <body>
 <!-- navbar -->
     <header>
+        <div class="navbar-fixed">  <!-- ADDITION -->
         <nav class="nav-wrapper indigo lighten-2">
             <div class="container">
                 <a href="" class="brand-logo">HealthSync</a>
@@ -57,6 +65,7 @@
                 </ul>
             </div>
         </nav>
+        </div>
     </header>
 
 {% block content %}
@@ -64,7 +73,7 @@
 {% endblock %}
 
 <!-- footer -->
-    <footer class="page-footer grey darken-3">
+    <footer class="page-footer grey darken-3" style="bottom:0;width:100%;"> <!-- EDITED -->
         <div class="container">
             <div class="row">
                 <div class="col s12 l6">
@@ -82,7 +91,7 @@
                 </div>
             </div>
             
-        </div>
+        </div>  
         <div class="footer-copyright grey darken-4">
             <div class="container center-align">&copy;2019 HealthSync</div>
         </div>
