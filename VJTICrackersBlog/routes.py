@@ -56,7 +56,6 @@ def logout():
 
 
 @app.route("/profile")
-#zdg
 def profile():
     return render_template('profile.html', title='Profile', case='pat_profile')
 
