@@ -30,11 +30,13 @@ def doctor_required(function):
     return is_doctor
 
 @app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+@app.route('/home')
+def home():
+    return render_template('home.html')
 
-# @app.route('/home')
-# def home():
+@app.route('/about')
+def about():
+    return render_template('about.html')
 @app.route('/login', methods=['GET'])
 def login():
     if current_user.is_authenticated:
@@ -61,7 +63,9 @@ def login_doctor():
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login unsuccessful. Please check mail and password')
+            return redirect(url_for('login'))
 
+    return redirect(url_for('login'))
     # if form.validate_on_submit():
     #     user = User.query.filter_by(email=form.email.data).first()
     #     if user and bcrypt.check_password_hash(user.password, form.password.data):
@@ -87,7 +91,9 @@ def login_patient():
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login unsuccessful. Please check mail and password')
+            return redirect(url_for('login'))
 
+    return redirect(url_for('login'))
 @app.route('/register',methods=['GET'])
 def register():
     if current_user.is_authenticated:
@@ -136,10 +142,6 @@ def register_doctor():
     return redirect(url_for('home'))
 
 
-@app.route('/home')
-@login_required
-def home():
-    return('under construction')
 
 @app.route('/generate_otp')
 @login_required
