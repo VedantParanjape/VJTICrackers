@@ -2,57 +2,70 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col s12 white">
-        <div class="col s12" id="signin">
-            <p class="flow-text indigo-text text-darken-4">Sign in securely..</p>
-            <section class="section container" id="Sign in">
-                <div class="row">
-                    <div class="col s12 l10">
-                        <form method="POST" action="">
-                            {{ form.hidden_tag() }}
-                            <div class="input-field">
-                                <i class="material-icons prefix">email</i>
-                                <!-- <input type="email" id="email" class="validate"> -->
-                                {{ form.email.label(class="form-control-label") }}
-                                    {% if form.email.errors %}
-                                        {{ form.email(class="form-control form-control-lg is-invalid") }}
-                                        <div class="invalid-feedback">
-                                            {% for error in form.email.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}
+<!--Login tabs-->
+    <section class="container section" id="login">
+        <div class="row">
+            <div class="col s12 l10 offset-l1">
+                <ul class="tabs">
+                    <li class="tab col s6">
+                        <a href="#pat_signin" class="indigo-text text-darken-4">Patient Sign in</a>
+                    </li>
+                    <li class="tab col s6">
+                        <a href="#doc_signin" class="indigo-text text-darken-4">Doctor Sign in</a>
+                    </li>
+                </ul>
+                <div class="col s12">
+                    <div class="col s12" id="pat_signin">
+                        <p class="flow-text indigo-text text-darken-4">Patient signin</p>
+                        <section class="section container" id="Sign in">
+                            <div class="row">
+                                <div class="col s12 l10">
+                                    <form action="">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input type="email" id="pat_email">
+                                            <label for="pat_email">Your email</label>
                                         </div>
-                                    {% else %}
-                                        {{ form.email(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                <!-- <label for="email">Your email</label> -->
-                            </div>
-                            <div class="input-field">
-                                <i class="material-icons prefix">vpn_key</i>
-                                <!-- <input type="password" id="password" class="validate"> -->
-                                {{ form.password.label(class="form-control-label") }}
-                                    {% if form.password.errors %}
-                                        {{ form.password(class="form-control form-control-lg is-invalid") }}
-                                        <div class="invalid-feedback">
-                                            {% for error in form.password.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="pat_password" class="validate">
+                                            <label for="pat_password">Password</label>
                                         </div>
-                                    {% else %}
-                                        {{ form.password(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                <!-- <label for="password">Password</label> -->
+                                        <div class="input-field center">
+                                            <button class="btn" id="pat_login">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            
-                            <div class="input-field center">
-                                <!-- <button class="btn">Login</button> -->
-                                {{ form.submit(class="btn btn-outline-info") }}
+                        </section>
+                    </div>
+                    <div class="col s12" id="doc_signin">
+                        <p class="flow-text indigo-text text-darken-4">Doctor signin</p>
+                        <section class="section container">
+                            <div class="row">
+                                <div class="col s12 l10">
+                                    <form action="">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input type="email" id="doc_email">
+                                            <label for="doc_email">Email</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="doc_password">
+                                            <label for="doc_password">Password</label>
+                                        </div>
+                                        <div class="input-field center">
+                                            <button class="btn" id="doc_login">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </form>
+                        </section>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-</div>
+    </section>
 
 {% endblock %}

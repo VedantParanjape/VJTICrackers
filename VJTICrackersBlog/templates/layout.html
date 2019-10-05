@@ -20,14 +20,15 @@
     <header>
         <nav class="nav-wrapper indigo lighten-2">
             <div class="container">
-                <a href="" class="brand-logo">Photo Ninja</a>
+                <a href="" class="brand-logo">HealthSync</a>
                 <a href="" class="sidenav-trigger" data-target="mobile-menu">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#photos">Photos</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/profile">Profile</a></li>
                     <li><a href="#" class=" tooltipped btn-floating btn-small indigo darken-4" data-tooltip="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a></li>
@@ -39,9 +40,10 @@
                     </a></li>
                 </ul>
                 <ul class="sidenav grey lighten-2" id="mobile-menu">
-                        <li><a href="#">Photos</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                        <li><a href="/profile">Profile</a></li>
                 </ul>
             </div>
         </nav>
@@ -56,7 +58,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 l6">
-                    <h5>About me</h5>
+                    <h5>About us</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
                 <div class="col s12 l4 offset-l2">
@@ -72,7 +74,7 @@
             
         </div>
         <div class="footer-copyright grey darken-4">
-            <div class="container center-align">&copy; 2018 Photo Ninja</div>
+            <div class="container center-align">&copy;2019 HealthSync</div>
         </div>
     </footer>
 
@@ -82,8 +84,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script>
         $(document).ready(function(){
-           $('.sidenav').sidenav(); 
+           $('.sidenav').sidenav();
+            $(".tabs").tabs();
+            $(".tooltipped").tooltip();
+            $('select').formSelect();
         });
-    </script>
+    </script>  
 </body>
 </html>

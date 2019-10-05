@@ -1,0 +1,181 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+	<section class="container section" id="login">
+        <div class="row">
+            <div class="col s12 l10 offset-l1">
+
+
+                <ul class="tabs">
+                    <li class="tab col s6">
+                        <a href="#patient_signup" class="indigo-text text-darken-4">Patient signup</a>
+                    </li>
+                    <li class="tab col s6">
+                        <a href="#doctor_signup" class="indigo-text text-darken-4">Doctor signup</a>
+                    </li>
+                </ul>
+
+
+                <!-- Patient Signup -->
+                <div class="col s12">
+                    <div class="col s12" id="patient_signup">
+                        <p class="flow-text indigo-text text-darken-4">Patients here</p>
+                        <section class="section container" id="Sign in">
+                            <div class="row">
+                                <div class="col s12 l10">
+                                    <form action="">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">perm_identity</i>
+                                            <input type="text" id="pat_name">
+                                            <label for="pat_name">Your name</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input type="email" id="pat_email">
+                                            <label for="pat_email">Email</label>
+                                        </div>
+
+                                        <!-- <div class="input-field">
+                                            <i class="material-icons prefix">face</i>
+                                            <p>
+	                                            <label for="pat_sex">
+	                                            	<input name="gender" type="radio" checked />
+	        										<span>Male</span>
+	                                            </label>
+                                            </p>
+
+                                            <p>
+	                                            <label for="pat_sex">
+	                                            	<input name="gender" type="radio"/>
+	        										<span>Female</span>
+	                                            </label>
+                                            </p>
+                                        </div> -->
+
+                                        
+                                        	<i style="float:left; padding-right:10px" class="material-icons prefix">face</i>
+                                        	<p>Gender:</p>
+                                        	<div class="input-field">
+											    <p>
+											      <label for="pat_male">
+											        <input name="yourchoice" type="radio" id="pat_male" checked />
+											        <span class="black-text">Male</span>
+											      </label>
+											    </p>
+											    <p>
+											      <label for="pat_female">
+											        <input name="yourchoice" type="radio" id="pat_female" />
+											        <span class="black-text">Female</span>
+											      </label>
+											    </p>  
+											</div>
+							
+											<div class="input-field">
+												<i class="fas fa-weight prefix"></i>
+												<input type="text" id="pat_weight">
+												<label for="pat_weight">Weight</label>
+											</div>
+
+											<div class="input-field">
+												<i class="material-icons prefix">accessibility</i>
+												<input type="text" id="pat_height">
+												<label for="pat_height">Height</label>
+											</div>
+
+										<div class="input-field">
+                                            <i class="material-icons prefix">my_location</i>
+                                            <input type="text" id="loc">
+                                            <label for="loc">Location</label>
+                                        </div>
+                                        <br>
+                                        <div class="input-field">
+                                        	<i class="fas fa-lg prefix fa-tint"></i>
+										    <select id="blood_group" class="grey-text">
+										      <option value=""></option>
+										      <option value="A+">A+</option>
+										      <option value="A-">A-</option>
+										      <option value="B+">B+</option>
+										      <option value="B-">B+</option>
+										      <option value="O+">O+</option>
+										      <option value="O-">O-</option>
+										      <option value="AB+">AB+</option>
+										      <option value="AB-">AB-</option>
+										    </select>
+										    <label for="blood_group">Blood group</label>
+										 </div>
+										
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="pat_pass">
+                                            <label for="pat_pass">Password</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="pat_con">
+                                            <label for="pat_con">Confirm password</label>
+                                        </div>
+
+                                        
+
+                                        <div class="input-field center">
+                                            <button class="btn">Sign up</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Doctor Signup -->
+                    <div class="col s12" id="doctor_signup">
+                        <p class="flow-text indigo-text text-darken-4">Doctors here..</p>
+                        <section class="section container">
+                            <div class="row">
+                                <div class="col s12 l10">
+                                    <form action="">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">perm_identity</i>
+                                            <input type="text" id="doc_name">
+                                            <label for="doc_name">Your name</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input type="email" id="doc_email">
+                                            <label for="doc_email">Email</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">my_location</i>
+                                            <input type="text" id="doc_loc">
+                                            <label for="doc_loc">Location</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="fas fa-graduation-cap prefix"></i>
+                                            <textarea class="materialize-textarea" id="doc_deg"></textarea>
+                                            <label for="doc_deg">Degree and Specialization</label>
+                                        </div>
+
+
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="doc_pass">
+                                            <label for="doc_pass">Password</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="doc_con">
+                                            <label for="doc_con">Confirm password</label>
+                                        </div>
+                                        <div class="input-field center">
+                                            <button class="btn">Sign up</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
