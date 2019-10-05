@@ -49,6 +49,18 @@ class DoctorRegistrationForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
 
+class AddPatientHistory(FlaskForm):
+    symptoms = StringField('Symptoms',
+                           validators=[DataRequired(), Length(min=2, max=200)]) 
+    diagnosis = StringField('Diagnosis',
+                           validators=[DataRequired(), Length(min=2, max=200)])
+    treatment = StringField('Treatment',
+                           validators=[DataRequired(), Length(min=2, max=200)])
+    otp_add = StringField('OTP', validators=[DataRequired])
+
+class AddOtp(FlaskForm):
+    otp_verify = StringField('OTP', validators=[DataRequired])
+
 class LoginForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
