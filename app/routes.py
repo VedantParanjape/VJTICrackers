@@ -4,7 +4,10 @@ from flask_login import *
 from werkzeug.urls import *
 from datetime import *
 from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm
-from app.models import Patient, Doctor, PatientHistory
+from app.models import Patient, Doctor, PatientHistory, AddPatientHistory, AddOtp
+import pyotp
+from functools import wraps
+from sqlalchemy.exc import IntegrityError
 
 @app.route('/', methods=['GET'])
 def index():
@@ -75,7 +78,7 @@ def register():
 
     return render_template('register.html', form_patient=form_patient, form_doctor=form_doctor)
 
-@app.route('register_patient', methods = ['GET','POST'])
+@app.route('/register_patient', methods = ['GET','POST'])
 def register_patient():
     form_patient = PatientRegistrationForm
 
@@ -109,7 +112,7 @@ def register_doctor():
     
     else:
         flash("error in signing up")
-        
+
     return redirect(url_for('home'))
 
 
@@ -118,25 +121,72 @@ def register_doctor():
 def home():
 
 
-@app.route('/permissions')
+@app.route('/generate_otp')
 @login_required
-def permissions():
+@patient_required
+def generate_otp():
+    otp = pyotp.random_base32()
+    
+    current_user.otp = otp
+    
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        return flash("Otp generation failed, Refresh to Try Again")
+
+    return render_template('generate_otp.html', otp=otp)
+
+def patient_required():
+    def wrap(*args, **kwargs):
+        if current_user.role == 'p':
+            return True
+
+        else:
+            return False
+
+def doctor_required():
+    def wrap(*args, **kwargs):
+        if current_user.role == 'd':
+            return True
+
+        else:
+            return False
 
 @app.route('/add_patient_data')
 @login_required
+@doctor_required
 def add_patient_data():
-    if current_user.role == 'p':
-        return redirect(url_for('home'))
+    patient_history = AddPatientHistory()
 
-    elif current_user.role != 'd':
-        return redirect(url_for('home'))
+    if flask.request.method == 'GET':
+        return render_template('add_patient_data.html', patient_history=patient_history)
 
-@app.route('/patient_history')
+    patient_t = Patient.query.filter_by(otp = patient_history.otp_add.data)
+
+    if patient_id:
+        p_history = PatientHistory(patient_id=patient_t.id, doctor_id=current_user.id, 
+                                   symptoms=patient_history.symptoms.data, 
+                                   diagnosis=patient_history.diagnosis.data,
+                                   treatment=patient_history.treatment.data)
+        
+        return redirect('view_patient_history')
+    else:
+        flash("Error, Try again")
+
+    
+    
+
+@app.route('/view_patient_history')
 @login_required
-def add_patient_data():
-    if current_user.role == 'p':
-        return redirect(url_for('home'))
+@doctor_required    
+def view_patient_history():
+    otpform = AddOtp()
 
-    elif current_user.role != 'd':
-        return redirect(url_for('home'))
+    if flask.requests.method == 'GET':
+        return render_template('validate_otp.html')
 
+    patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()
+
+    if patient:
+        return render_template('patient_history.html', patienthistory=PatientHistory.query.filter_by(patient_id=patient.id).all())

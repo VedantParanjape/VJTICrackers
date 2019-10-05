@@ -21,6 +21,8 @@ class Patient(UserMixin, db.Model):
     location = db.Column(db.String(50))
     patienthistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
     role = db.Column(db.String(1), default='p')
+    otp = db.Column(db.String(20), default=' ', unique=True)
+
     def __repr__(self):
         return '<Patient {}>'.format(self.name)
 
