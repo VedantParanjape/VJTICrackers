@@ -24,15 +24,15 @@ class PatientRegistrationForm(FlaskForm):
        
     #submit = SubmitField('Sign Up')
 
-    # def validate_username(self, username):
-    #     user = User.query.filter_by(username=username.data).first()
+    # def validate_username(self, name):
+    #     user = PatientRegistrationForm.query.filter_by(name=name.data).first()
     #     if user:
     #         raise ValidationError('That username is taken. Please choose a different one.')
 
-    # def validate_email(self, email):
-    #     user = User.query.filter_by(email=email.data).first()
-    #     if user:
-    #         raise ValidationError('That email is taken. Please choose a different one.')
+    def validate_email(self, email):
+        user = PatientRegistrationForm.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('That email is taken. Please choose a different one.')
 
 class DoctorRegistrationForm(FlaskForm):
     name = StringField('Name',
@@ -43,11 +43,19 @@ class DoctorRegistrationForm(FlaskForm):
     degree = StringField('Degree', validators=[DataRequired()])
     specialisation = StringField('Specialisation', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
-    # picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
+<<<<<<< HEAD
+    #picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
+=======
+    #picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
+>>>>>>> a44fcaf94d2500bd314dc476878abd2c7b29178f
 
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
+    def validate_email(self, email):
+        user = DoctorRegistrationForm.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('That email is taken. Please choose a different one.')
 
 class AddPatientHistory(FlaskForm):
     symptoms = StringField('Symptoms',
