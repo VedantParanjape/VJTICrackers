@@ -3,7 +3,6 @@ from flask_wtf.file import *
 from flask_login import current_user
 from wtforms import *
 from wtforms.validators import *
-from flaskblog.models import User
 
 class PatientRegistrationForm(FlaskForm):
     name = StringField('Name',
@@ -43,11 +42,6 @@ class DoctorRegistrationForm(FlaskForm):
     degree = StringField('Degree', validators=[DataRequired()])
     specialisation = StringField('Specialisation', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
-<<<<<<< HEAD
-    #picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
-=======
-    #picture = FileField('Degree Proof', validators=[FileAllowed(['jpg', 'png'])])
->>>>>>> a44fcaf94d2500bd314dc476878abd2c7b29178f
 
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',

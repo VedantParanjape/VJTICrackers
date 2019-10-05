@@ -1,13 +1,33 @@
 from flask import *
 from app import app, db
-from flask_login import *
+from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.urls import *
 from datetime import *
-from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm
-from app.models import Patient, Doctor, PatientHistory, AddPatientHistory, AddOtp
+from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm, AddPatientHistory, AddOtp
+from app.models import Patient, Doctor, PatientHistory
 import pyotp
 from functools import wraps
 from sqlalchemy.exc import IntegrityError
+
+def patient_required(function):
+    @wraps(function)
+    def is_patient(*args, **kwargs):
+        if current_user.role == 'p':
+            return True
+
+        else:
+            return False
+    return is_patient
+
+def doctor_required(function):
+    @wraps(function)
+    def is_doctor(*args, **kwargs):
+        if current_user.role == 'd':
+            return True
+
+        else:
+            return False
+    return is_doctor
 
 @app.route('/', methods=['GET'])
 def index():
@@ -17,7 +37,7 @@ def index():
 # def home():
 @app.route('/login', methods=['GET'])
 def login():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('home'))
 
     form_patient = LoginForm()
@@ -70,7 +90,7 @@ def login_patient():
 
 @app.route('/register',methods=['GET'])
 def register():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('home'))
 
     form_patient = PatientRegistrationForm()
@@ -80,7 +100,7 @@ def register():
 
 @app.route('/register_patient', methods = ['GET','POST'])
 def register_patient():
-    form_patient = PatientRegistrationForm
+    form_patient = PatientRegistrationForm()
 
     if form_patient.validate_on_submit():
         patient = Patient(name = form_patient.data, email = form_patient.email.data, 
@@ -119,7 +139,7 @@ def register_doctor():
 @app.route('/home')
 @login_required
 def home():
-
+    return('under construction')
 
 @app.route('/generate_otp')
 @login_required
@@ -136,22 +156,6 @@ def generate_otp():
         return flash("Otp generation failed, Refresh to Try Again")
 
     return render_template('generate_otp.html', otp=otp)
-
-def patient_required():
-    def wrap(*args, **kwargs):
-        if current_user.role == 'p':
-            return True
-
-        else:
-            return False
-
-def doctor_required():
-    def wrap(*args, **kwargs):
-        if current_user.role == 'd':
-            return True
-
-        else:
-            return False
 
 @app.route('/add_patient_data')
 @login_required
