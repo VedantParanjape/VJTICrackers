@@ -1,1 +1,20 @@
-hello otp here
+{% extends 'layout.html' %}
+{% block content %}
+
+<br><br>
+<div class="container row">
+    <div class="card col l6 offset-l3">
+        <h4 class="center-align">OTP Verification</h4>
+        <form action="/view_patient_history" method="post">
+            <div class="input-field">
+                <input type="text" id="otp" name="otpform.otp_verify.name">
+                <label for="otp">Enter OTP</label>
+            </div>
+            <div class="input-field center">
+                    <button class="btn indigo waves-effect">Verify OTP</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -31,7 +31,6 @@ def doctor_required(function):
 @app.route('/', methods=['GET'])
 @app.route('/home')
 def home():
-    print(current_user.role, current_user.name)
     return render_template('home.html', user=current_user)
 
 @app.route('/about')
@@ -61,7 +60,6 @@ def login_doctor():
         if doctor and doctor.check_password(password=form_doctor.password.data):
             login_user(doctor)
             next_page = request.args.get('next')
-            print(current_user.role, current_user.name)
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login unsuccessful. Please check mail and password')
@@ -90,7 +88,7 @@ def login_patient():
         if patient and patient.check_password(password=form_patient.password.data):
             login_user(patient)
             next_page = request.args.get('next')
-            print(current_user.role, current_user.name)
+            
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login unsuccessful. Please check mail and password')
@@ -159,6 +157,7 @@ def generate_otp():
     otp = pyotp.random_base32()
     
     current_user.otp = otp
+    print(current_user.otp)
     
     try:
         db.session.commit()
@@ -192,16 +191,15 @@ def add_patient_data():
     
     
 
-@app.route('/view_patient_history')
+@app.route('/view_patient_history', methods=['GET','POST'])
 @login_required
 # @doctor_required    
 def view_patient_history():
     otpform = AddOtp()
 
     if request.method == 'GET':
-        return render_template('validate_otp.html')
+        return render_template('validate_otp.html', otpform=otpform)
 
     patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()
 
-    if patient:
-        return render_template('patient_history.html', patienthistory=PatientHistory.query.filter_by(patient_id=patient.id).all())
+    return render_template('patient_history.html', patienthistory=PatientHistory.query.filter_by(patient_id=patient.id).all())

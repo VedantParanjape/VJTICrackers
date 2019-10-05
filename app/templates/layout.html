@@ -27,9 +27,9 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/about">About</a></li>
-                    {% if user.is_authenticated %}
-                        <li>{{user.role}} {{user.name}}</li>
-                        {% if user.role=='d' %}
+                    {% if current_user.is_authenticated %}
+                        <li>{{current_user.role}} {{current_user.name}}</li>
+                        {% if current_user.role=='d' %}
                             <li><a href="/view_patient_history">Patient History</a></li>
                         {% else %}
                             <li><a href="/generate_otp">Generate OTP</a></li>
