@@ -27,9 +27,18 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/about">About</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
-                    <li><a href="/profile">Profile</a></li>
+                    {% if current_user.is_authenticated %}
+                        {% if current_user.role=='p' %}
+                            <li><a href="/generate_otp">Generate OTP</a></li>
+                        {% else %}
+                            <li><a href="/patient_history">Patient History</a></li>
+                        {% endif %} 
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">Sign Up</a></li>
+                    {% endif %}    
                     <li><a href="#" class=" tooltipped btn-floating btn-small indigo darken-4" data-tooltip="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a></li>
