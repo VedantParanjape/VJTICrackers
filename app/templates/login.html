@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!--Login tabs-->
+    <section class="container section" id="login">
+        <div class="row">
+            <div class="col s12 l10 offset-l1">
+                <ul class="tabs">
+                    <li class="tab col s6">
+                        <a href="#pat_signin" class="indigo-text text-darken-4">Patient Sign in</a>
+                    </li>
+                    <li class="tab col s6">
+                        <a href="#doc_signin" class="indigo-text text-darken-4">Doctor Sign in</a>
+                    </li>
+                </ul>
+                <div class="col s12">
+                    <div class="col s12" id="pat_signin">
+                        <p class="flow-text indigo-text text-darken-4">Patient signin</p>
+                        <section class="section container" id="Sign in">
+                            <div class="row">
+                                <div class="col s12 l10">
+
+                                    <!-- Login Form -->
+                                    <form action="/login_patient" method="post">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input type="email" id="pat_email" name="{{form_patient.email.name}}">
+                                            <label for="pat_email">Your email</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="pat_password" class="validate" name="{{form_patient.password.name}}">
+                                            <label for="pat_password">Password</label>
+                                        </div>
+                                        <div class="input-field center">
+                                            <button class="btn" id="pat_login">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col s12" id="doc_signin">
+                        <p class="flow-text indigo-text text-darken-4">Doctor signin</p>
+                        <section class="section container">
+                            <div class="row">
+                                <div class="col s12 l10">
+                                    <form action="/login_doctor" method="post">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input type="email" id="doc_email" name="{{form_doctor.email.name}}">
+                                            <label for="doc_email">Email</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input type="password" id="doc_password" name="{{form_doctor.password.name}}">
+                                            <label for="doc_password">Password</label>
+                                        </div>
+                                        <div class="input-field center">
+                                            <button class="btn" id="doc_login">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

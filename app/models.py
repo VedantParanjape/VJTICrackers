@@ -4,10 +4,14 @@ from flask_login import UserMixin
 from hashlib import md5
 from datetime import datetime
 
-# @login.user_loader
-# def load_user(id):
-#     return User.query.get(int(id))
-    
+@login.user_loader
+def load_patient(id):
+    return Patient.query.get(int(id))
+
+@login.user_loader
+def load_doctor(id):
+    return Doctor.query.get(int(id))
+
 class Patient(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
@@ -40,7 +44,7 @@ class Doctor(UserMixin ,db.Model):
     location = db.Column(db.String(50), nullable=False)
     degree = db.Column(db.String(20), nullable=False)
     specialisation = db.Column(db.String(30))
-    doctorhistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
+    # doctorhistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
     # degreeoofpath = db.Column(db.String(30), nullable=False)
     role = db.Column(db.String(1), default='d')
 
@@ -57,7 +61,7 @@ class PatientHistory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time_stamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'))
-    doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))
+    # doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))
     symptoms = db.Column(db.String(200))
     diagnosis = db.Column(db.String(200))
     treatment = db.Column(db.String(200))

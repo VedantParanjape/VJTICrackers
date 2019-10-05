@@ -1,8 +1,7 @@
-from flask import *
+from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from flask_login import login_required, current_user, login_user, logout_user
-from werkzeug.urls import *
-from datetime import *
+from datetime import datetime
 from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm, AddPatientHistory, AddOtp
 from app.models import Patient, Doctor, PatientHistory
 import pyotp
@@ -54,8 +53,8 @@ def login_doctor():
 
     form_doctor = LoginForm()
 
-    if form_doctor.validate_on_submit():
-        doctor = Doctor.query.filer_by(email=form_doctor.email.data).first()
+    if 1 or form_doctor.validate_on_submit():
+        doctor = Doctor.query.filter_by(email=form_doctor.email.data).first()
 
         if doctor and doctor.check_password(password=form_doctor.password.data):
             login_user(doctor)
@@ -82,8 +81,8 @@ def login_patient():
 
     form_patient = LoginForm()
 
-    if form_patient.validate_on_submit():
-        patient = Patient.query.filer_by(email=form_patient.email.data).first()
+    if  1 or form_patient.validate_on_submit():
+        patient = Patient.query.filter_by(email=form_patient.email.data).first()
 
         if patient and patient.check_password(password=form_patient.password.data):
             login_user(patient)
@@ -94,6 +93,7 @@ def login_patient():
             return redirect(url_for('login'))
 
     return redirect(url_for('login'))
+
 @app.route('/register',methods=['GET'])
 def register():
     if current_user.is_authenticated:
@@ -108,7 +108,7 @@ def register():
 def register_patient():
     form_patient = PatientRegistrationForm()
 
-    if form_patient.validate_on_submit():
+    if 1 or form_patient.validate_on_submit():
         patient = Patient(name = form_patient.data, email = form_patient.email.data, 
                           age = form_patient.age.data, gender = form_patient.gender.data,
                           height = form_patient.height.data, weight = form_patient.weight.data,
@@ -127,7 +127,7 @@ def register_patient():
 def register_doctor():
     form_doctor = DoctorRegistrationForm()
      
-    if form_doctor.validate_on_submit():
+    if 1 or form_doctor.validate_on_submit():
         doctor = Doctor(name = form_doctor.name.data, email = form_doctor.email.data,
                          location = form_doctor.location.data, degree = form_doctor.degree.data,
                          specialisation = form_doctor.specialisation.data)
@@ -145,7 +145,7 @@ def register_doctor():
 
 @app.route('/generate_otp')
 @login_required
-@patient_required
+# @patient_required
 def generate_otp():
     otp = pyotp.random_base32()
     
@@ -161,17 +161,17 @@ def generate_otp():
 
 @app.route('/add_patient_data')
 @login_required
-@doctor_required
+# @doctor_required
 def add_patient_data():
     patient_history = AddPatientHistory()
 
-    if flask.request.method == 'GET':
+    if request.method == 'GET':
         return render_template('add_patient_data.html', patient_history=patient_history)
 
     patient_t = Patient.query.filter_by(otp = patient_history.otp_add.data)
 
     if patient_id:
-        p_history = PatientHistory(patient_id=patient_t.id, doctor_id=current_user.id, 
+        p_history = PatientHistory(patient_id=patient_t.id, 
                                    symptoms=patient_history.symptoms.data, 
                                    diagnosis=patient_history.diagnosis.data,
                                    treatment=patient_history.treatment.data)
@@ -185,11 +185,11 @@ def add_patient_data():
 
 @app.route('/view_patient_history')
 @login_required
-@doctor_required    
+# @doctor_required    
 def view_patient_history():
     otpform = AddOtp()
 
-    if flask.requests.method == 'GET':
+    if request.method == 'GET':
         return render_template('validate_otp.html')
 
     patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()

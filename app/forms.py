@@ -3,6 +3,7 @@ from flask_wtf.file import *
 from flask_login import current_user
 from wtforms import *
 from wtforms.validators import *
+from app.models import Patient, Doctor, PatientHistory
 
 class PatientRegistrationForm(FlaskForm):
     name = StringField('Name',
@@ -11,7 +12,7 @@ class PatientRegistrationForm(FlaskForm):
                         validators=[DataRequired(), Email()])
 
     age = IntegerField('Age', validators=[DataRequired(), Length(min=0, max=100)])
-    gender = StringField('Gender', validators=[DataRequired()])
+    gender = RadioField('Gender', choices=[('M', 'Male'), ('F', 'Female')])
     height = IntegerField('Height', validators=[DataRequired(), Length(min=15, max=400)])
     weight = IntegerField('Weight', validators=[DataRequired(), Length(min=1, max=600)])
     bloodgroup = StringField('Blood Group', validators=[DataRequired()])
@@ -28,10 +29,10 @@ class PatientRegistrationForm(FlaskForm):
     #     if user:
     #         raise ValidationError('That username is taken. Please choose a different one.')
 
-    def validate_email(self, email):
-        user = PatientRegistrationForm.query.filter_by(email=email.data).first()
-        if user:
-            raise ValidationError('That email is taken. Please choose a different one.')
+    # def validate_email(self, email):
+    #     user = Patient.query.filter_by(email=self.email.data).first()
+    #     if user:
+    #         raise ValidationError('That email is taken. Please choose a different one.')
 
 class DoctorRegistrationForm(FlaskForm):
     name = StringField('Name',
@@ -46,10 +47,10 @@ class DoctorRegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
-    def validate_email(self, email):
-        user = DoctorRegistrationForm.query.filter_by(email=email.data).first()
-        if user:
-            raise ValidationError('That email is taken. Please choose a different one.')
+    # def validate_email(self, email):
+    #     user = Doctor.query.filter_by(email=self.email.data).first()
+    #     if user:
+    #         raise ValidationError('That email is taken. Please choose a different one.')
 
 class AddPatientHistory(FlaskForm):
     symptoms = StringField('Symptoms',
