@@ -1,3 +1,9 @@
+body {
+    border: 10px solid green;
+    background-color: #000;
+}
+
+
 .timeline {
     position: relative;
 }

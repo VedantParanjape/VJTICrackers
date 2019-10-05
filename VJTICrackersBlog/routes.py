@@ -57,7 +57,7 @@ def logout():
 
 @app.route("/profile")
 def profile():
-    return render_template('profile.html', title='Profile', case='pat_profile')
+    return render_template('profile.html', title='Profile')
 
 # @app.route("/verify")
 # def verify():
