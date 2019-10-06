@@ -10,6 +10,7 @@ from sqlalchemy.exc import IntegrityError
 import csv
 import numpy as np
 import pickle
+import matplotlib.pyplot as plot, mpld3
 
 @app.route('/', methods=['GET'])
 @app.route('/home')

@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="container">
 <div class="login">
-	<h1>Predict Salary Analysis</h1>
+	<h3 class="center-align">Predict Salary Analysis</h3>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="/predict" method="post">
@@ -12,7 +13,10 @@
 
    <br>
    <br>
-   {{ prediction_text }}
-
+   <div container="card">
+   <div class="card-content">
+   <p class="flow-text center-align">Increase in % of deaths due to PM 2.5 pollution: {{ prediction_text }} </p>
+    </div></div>
+</div>
 </div>
 {% endblock %}
