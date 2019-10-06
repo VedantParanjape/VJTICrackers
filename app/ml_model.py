@@ -1,6 +1,6 @@
 # Import the necessary libraries
 import numpy
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plot, mpld3 
 import pandas
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -67,8 +67,10 @@ print(model.predict([[1.8]]))
 
 # Visualising the test set r
 plot.scatter(xTest, yTest, color = 'red')
-plot.plot(xTrain, linearRegressor.predict(xTrain), color = 'blue')
+fig = plot.plot(xTrain, linearRegressor.predict(xTrain), color = 'blue')
+fig = plot.figure()
 plot.title('Deaths vs. PM2.5 (Test set)')
 plot.xlabel('PM2.5')
 plot.ylabel('Deaths(% of population)')
 plot.show()
+mpld3.show(fig)
