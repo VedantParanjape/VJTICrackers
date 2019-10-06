@@ -191,7 +191,8 @@ def view_patient_history():
     # print(patient.name, patient.otp)
     if patient:
         print('inside patient if', patient)
-        return render_template('patient_history.html', title='Patient History',patient=patient )
+        patient_history = PatientHistory.query.filter_by(patient_id=patient.id).all()
+        return render_template('patient_history.html', title='Patient History',patient=patient, patient_history=patient_history)
     else:
         return redirect(url_for('home'))
 

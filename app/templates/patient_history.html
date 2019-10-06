@@ -112,59 +112,17 @@
         </div>
 
             
-                <div class="container">
-                  <div class="timeline">
-                    <div class="timeline-event">
-                      <div class="card timeline-content">
-                        <!-- <div class="card-image waves-effect waves-block waves-light">
-                          <img class="activator" src="https://lorempixel.com/120/120/nature/6">
-                        </div> -->
-                        <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-                          <p>Content <a href="#">This is a link</a></p>
-                        </div>
-                        <div class="card-reveal">
-                          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                      </div>
-                      <div class="timeline-badge blue white-text"><i class="material-icons">donut_large</i></div>
-                    </div>
-                    <div class="timeline-event">
-                      <div class="card timeline-content">
-                        <!-- <div class="card-image waves-effect waves-block waves-light">
-                          <img class="activator" src="https://lorempixel.com/120/120/nature/6">
-                        </div> -->
-                        <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-                          <p>Content <a href="#">This is a link</a></p>
-                        </div>
-                        <div class="card-reveal">
-                          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                      </div>
-                      <div class="timeline-badge red white-text"><i class="material-icons">donut_large</i></div>
-                    </div>
-                    <div class="timeline-event">
-                      <div class="card timeline-content">
-                        <!-- <div class="card-image waves-effect waves-block waves-light">
-                          <img class="activator" src="https://lorempixel.com/120/120/nature/6">
-                        </div> -->
-                        <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-                          <p>Content <a href="#">This is a link</a></p>
-                        </div>
-                        <div class="card-reveal">
-                          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                      </div>
-                      <div class="timeline-badge green white-text"><i class="material-icons">donut_large</i></div>
-                    </div>
-                  </div>
-                </div>
-            </div>
+    <div class="container">
+      <div class="timeline">
+        {% for post in patient_history%}
+          {% include 'history_card.html' %}
+        {% endfor %}          
+      </div>
+    </div>
+      <div class="input-field center" >
+        <a href="/add_patient_data" class="btn" id="doc_add_details">Add additional details</a>
+      </div>
+
 
 
 
