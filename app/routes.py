@@ -2,11 +2,14 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db, data
 from flask_login import login_required, current_user, login_user, logout_user
 from datetime import datetime
-from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm, AddPatientHistory, AddOtp
+from app.forms import LoginForm, PatientRegistrationForm, DoctorRegistrationForm, AddPatientHistory, AddOtp, Predict_
 from app.models import Patient, Doctor, PatientHistory
 import pyotp
 from functools import wraps
 from sqlalchemy.exc import IntegrityError
+import csv
+import numpy as np
+import pickle
 
 @app.route('/', methods=['GET'])
 @app.route('/home')
@@ -204,4 +207,30 @@ def profile():
 
     return render_template('profile.html', title='Profile')
 
+@app.route('/predict',methods=['POST', 'GET'])
+def predict():
+    '''
+    For rendering results on HTML GUI
+    '''
+    predict_ = Predict_()
+    model = pickle.load( open('model.pkl','rb'))
 
+    if request.method == 'GET':
+        return render_template('predict.html', predict_=predict_, prediction_text = "")
+    
+    Location = predict_.location.data
+
+    f = open('app/pm_data.csv', 'r')
+    reader = csv.reader(f)
+    loc = {}
+
+    for row in reader:
+        loc[row[0]] = row[1]
+
+    pm = loc[str(Location)]
+    print(pm, Location)
+    prediction = model.predict([[float(pm)]])
+
+    output = round(prediction[0][0], 2)
+
+    return render_template('predict.html', predict_=predict_, prediction_text=output)
