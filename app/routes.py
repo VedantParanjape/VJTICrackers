@@ -165,7 +165,7 @@ def add_patient_data():
         return render_template('analysis.html', patient_history=patient_history, title="Add Patient Data")
 
     patient_t = Patient.query.filter_by(otp = patient_history.otp_add.data).first()
-
+    print(patient_t)
     if patient_t:
         p_history = PatientHistory(patient_id=patient_t.id,
                                    symptoms=patient_history.symptoms.data, 
@@ -176,6 +176,7 @@ def add_patient_data():
         print('validated')
         return redirect('view_patient_history')
     else:
+        print("error, try again")
         flash("Error, Try again")
 
 @app.route('/view_patient_history', methods=['GET','POST'])
@@ -192,6 +193,7 @@ def view_patient_history():
     if patient:
         print('inside patient if', patient)
         patient_history = PatientHistory.query.filter_by(patient_id=patient.id).all()
+        print(patient_history)
         return render_template('patient_history.html', title='Patient History',patient=patient, patient_history=patient_history)
     else:
         return redirect(url_for('home'))
@@ -199,6 +201,7 @@ def view_patient_history():
 @app.route('/profile')
 @login_required
 def profile():
+
     return render_template('profile.html', title='Profile')
 
 

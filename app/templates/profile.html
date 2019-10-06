@@ -86,13 +86,13 @@
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <p class="flow-text">Bhavya Sheth</p> <!-- Add name variable -->
-                            <h6>Male</h6>
-                            <h6>18</h6>
-                            <h6>Location</h6>
+                            <p class="flow-text">{{current_user.name}}</p> <!-- Add name variable -->
+                            <h6>{{current_user.gender}}</h6>
+                            <h6>{{current_user.age}}</h6>
+                            <h6>{{current_user.location}}</h6>
                         </div>
                         <div class="card-action">
-                            <a href="#">Contact through email</a>
+                            <a href="mailto:{{current_user.email}}">Contact through email</a>
                         </div>
                     </div>
                 </div>
@@ -105,9 +105,9 @@
                             </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <h6>Height: 180cm</h6>
-                                <h6>Weight: 80kg</h6>
-                                <h6>Blood group: O+</h6>
+                                <h6>Height: {{current_user.height}} cm</h6>
+                                <h6>Weight: {{current_user.weight}} kg</h6>
+                                <h6>Blood group: {{current_user.bloodgroup}}</h6>
                             </div>
                         </div>
                     </div>
@@ -180,13 +180,12 @@
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <p class="flow-text">Dr. Ramlal PyCharmwaala</p> <!-- Add name variable -->
-                                    <h6>MBBS (Not Munna Bhai)</h6> <!-- Add degree and specialization together-->
-                                    <h6>Specialization: Nothing specific</h6>   <!-- Ye waala tp ke liye-->
-                                    <h6>Location</h6>   <!-- Add location -->
+                                    <p class="flow-text">{{current_user.name}}</p> <!-- Add name variable -->
+                                    <h6>{{current_user.degree}}</h6> <!-- Add degree and specialization together-->
+                                    <h6>{{current_user.location}}</h6>   <!-- Add location -->
                                 </div>
                                 <div class="card-action">
-                                    <a href="#">Contact through email</a> <!-- Add email link -->
+                                    <a href="mailto:{{current_user.email}}">Contact through email</a> <!-- Add email link -->
                                 </div>
                             </div>
                         </div>

@@ -65,7 +65,7 @@ class PatientHistory(db.Model):
     treatment = db.Column(db.String(200))
     
     def __repr__(self):
-        return '<PatientHistory {}>'.format(self.id)
+        return '<PatientHistory {} {} {} {}>'.format(self.id, self.symptoms, self.diagnosis, self.treatment)
 
 @login.user_loader
 def load_patient(id):

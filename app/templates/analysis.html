@@ -9,22 +9,22 @@
         <h2>Your analysis</h2>
         <form action="/add_patient_data" method="POST">
             <div class="input-field">
-                <textarea class="materialize-textarea" id="symptoms"></textarea>
+                <textarea class="materialize-textarea" id="symptoms" name="{{patient_history.symptoms.name}}"></textarea>
                 <label for="symptoms">Symptoms</label>
             </div>
             <br>
             <div class="input-field">
-                    <textarea class="materialize-textarea" id="diagnosis"></textarea>
+                    <textarea class="materialize-textarea" id="diagnosis" name="{{patient_history.diagnosis.name}}"></textarea>
                     <label for="diagnosis">Diagnosis</label>
             </div>
             <br>
             <div class="input-field">
-                    <textarea class="materialize-textarea" id="treatment"></textarea>
+                    <textarea class="materialize-textarea" id="treatment" name="{{patient_history.treatment.name}}"></textarea>
                     <label for="treatment">Suggested Treatment</label>
             </div>
             <br>
             <div class="input-field">
-                <textarea class="materialize-textarea" id="o"></textarea>
+                <input type="text" class="materialize-textarea" id="o" name="{{patient_history.otp_add.name}}"></textarea>
                 <label for="otp">OTP</label>
             </div>
             <div class="input-field center">
