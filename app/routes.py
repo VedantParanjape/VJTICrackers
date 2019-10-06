@@ -150,33 +150,33 @@ def generate_otp():
         db.session.commit()
     except IntegrityError:
         db.session.rollback()
+        print("otp generation failed")
         return flash("Otp generation failed, Refresh to Try Again")
 
     return render_template('generate_otp.html', otp=otp, title="OTP")
 
-@app.route('/add_patient_data')
+@app.route('/add_patient_data', methods=['GET', 'POST'])
 @login_required
 # @doctor_required
 def add_patient_data():
     patient_history = AddPatientHistory()
 
     if request.method == 'GET':
-        return render_template('add_patient_data.html', patient_history=patient_history, title="Add Patient Data")
+        return render_template('analysis.html', patient_history=patient_history, title="Add Patient Data")
 
-    patient_t = Patient.query.filter_by(otp = patient_history.otp_add.data)
+    patient_t = Patient.query.filter_by(otp = patient_history.otp_add.data).first()
 
-    if patient_id:
-        p_history = PatientHistory(patient_id=patient_t.id, 
+    if patient_t:
+        p_history = PatientHistory(patient_id=patient_t.id,
                                    symptoms=patient_history.symptoms.data, 
                                    diagnosis=patient_history.diagnosis.data,
                                    treatment=patient_history.treatment.data)
-        
+        db.session.add(p_history)
+        db.session.commit()
+        print('validated')
         return redirect('view_patient_history')
     else:
         flash("Error, Try again")
-
-    
-    
 
 @app.route('/view_patient_history', methods=['GET','POST'])
 @login_required
@@ -188,21 +188,16 @@ def view_patient_history():
         return render_template('validate_otp.html', otpform=otpform, title='Validate OTP')
 
     patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()
+    # print(patient.name, patient.otp)
     if patient:
-        return render_template('patient_history.html', title='Patient History')
+        print('inside patient if', patient)
+        return render_template('patient_history.html', title='Patient History',patient=patient )
+    else:
+        return redirect(url_for('home'))
 
 @app.route('/profile')
 @login_required
 def profile():
     return render_template('profile.html', title='Profile')
-
-
-@app.route('/analysis')
-@login_required
-def analysis():
-    if current_user.role == 'd':
-        return render_template('analysis.html', title='Your analysis')
-    else:
-        return redirect(url_for('home'))
 
 

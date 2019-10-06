@@ -15,7 +15,7 @@ class Patient(UserMixin, db.Model):
     weight = db.Column(db.Integer)
     bloodgroup = db.Column(db.String(4))
     location = db.Column(db.String(50))
-    patienthistory = db.relationship('PatientHistory', backref='history', lazy='dynamic')
+    # patienthistory = db.relationship('PatientHistory', backref='history', lazy='True')
     role = db.Column(db.String(1), default='p')
     otp = db.Column(db.String(20), unique=True)
 
@@ -58,7 +58,7 @@ class Doctor(UserMixin ,db.Model):
 class PatientHistory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time_stamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'))
+    patient_id = db.Column(db.Integer, nullable=False)
     # doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))
     symptoms = db.Column(db.String(200))
     diagnosis = db.Column(db.String(200))

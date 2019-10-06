@@ -58,13 +58,13 @@
                                         	<div class="input-field">
 											    <p>
 											      <label for="pat_male">
-											        <input name="yourchoice" type="radio" id="pat_male" checked />
+											        <input name="{{form_patient.gender.name}}" type="radio" id="pat_male" value="M" checked />
 											        <span class="black-text">Male</span>
 											      </label>
 											    </p>
 											    <p>
 											      <label for="pat_female">
-											        <input name="yourchoice" type="radio" id="pat_female" />
+											        <input name="{{form_patient.gender.name}}" type="radio" id="pat_female" value="F" />
 											        <span class="black-text">Female</span>
 											      </label>
 											    </p>  
@@ -96,12 +96,12 @@
                                         <br>
                                         <div class="input-field">
                                         	<i class="fas fa-lg prefix fa-tint"></i>
-										    <select id="blood_group" class="grey-text" >
+										    <select id="blood_group" class="grey-text" name="{{form_patient.bloodgroup.name}}" >
 										      <option value=""></option>
 										      <option value="A+">A+</option>
 										      <option value="A-">A-</option>
 										      <option value="B+">B+</option>
-										      <option value="B-">B+</option>
+										      <option value="B-">B-</option>
 										      <option value="O+">O+</option>
 										      <option value="O-">O-</option>
 										      <option value="AB+">AB+</option>
