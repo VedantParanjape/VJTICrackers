@@ -1,9 +1,16 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import Flask, render_template, url_for, flash, redirect, request, jsonify
 from VJTICrackersBlog import app, db, bcrypt
 from VJTICrackersBlog.forms import RegistrationForm, LoginForm
 from VJTICrackersBlog.models import User
 from flask_login import login_user, current_user, logout_user, login_required
+import numpy as np
+import csv
 
+# from flask import Flask, request, jsonify
+import pickle
+
+class Predict_(FlaskForm):
+    location = StringField('Location', validators=[DataRequired()])
 
 @app.route("/")
 @app.route("/home")
@@ -63,3 +70,30 @@ def profile():
 # @app.route("/verify")
 # def verify():
 #     return render_template('verify_otp.html')
+
+@app.route('/predict',methods=['POST', 'GET'])
+def predict():
+    '''
+    For rendering results on HTML GUI
+    '''
+    predict_ = Predict_()
+
+    if flask.request.methods=='GET':
+        return render_template('predict.html', predict_=predict_, prediction_text = "")
+    
+    Location = predict_.location.data
+
+    f = open('pm_data.csv', 'r')
+    reader = csv.reader(f)
+
+    for row in reader:
+        print(row)
+
+    int_features = 3
+
+    final_features = [np.array(int_features)]
+    prediction = model.predict(final_features)
+
+    output = round(prediction[0], 2)
+
+    

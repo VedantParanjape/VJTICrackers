@@ -1,0 +1,627 @@
+Area Name,PM2.5
+Total,15.34
+City of London,17.59
+Abbey,15.39
+Alibon,14.86
+Becontree,14.94
+Chadwell Heath,14.8
+Eastbrook,14.66
+Eastbury,15.25
+Gascoigne,15.62
+Goresbrook,15.16
+Heath,14.84
+Longbridge,15.03
+Mayesbrook,14.91
+Parsloes,14.94
+River,15.09
+Thames,15.31
+Valence,14.95
+Village,14.75
+Whalebone,14.99
+Brunswick Park,14.87
+Burnt Oak,14.89
+Childs Hill,15.51
+Colindale,15.06
+Coppetts,15.31
+East Barnet,14.67
+East Finchley,15.34
+Edgware,14.87
+Finchley Church End,15.43
+Garden Suburb,15.29
+Golders Green,15.81
+Hale,15
+Hendon,15.52
+High Barnet,14.62
+Mill Hill,14.95
+Oakleigh,14.84
+Totteridge,14.7
+Underhill,14.64
+West Finchley,15.12
+West Hendon,15.66
+Woodhouse,15.17
+Barnehurst,14.8
+Belvedere,14.76
+Blackfen and Lamorbey,14.8
+Blendon and Penhill,15.04
+Brampton,14.76
+Christchurch,15.01
+Colyers,14.74
+Crayford,14.9
+Cray Meadows,14.68
+Danson Park,14.99
+East Wickham,14.84
+Erith,14.86
+Falconwood and Welling,15.09
+Lesnes Abbey,14.81
+Longlands,15.01
+North End,14.73
+Northumberland Heath,14.74
+St. Mary's,14.81
+St. Michael's,14.77
+Sidcup,14.81
+Thamesmead East,14.76
+Alperton,15.29
+Barnhill,15.11
+Brondesbury Park,15.44
+Dollis Hill,15.75
+Dudden Hill,15.83
+Fryent,15.04
+Harlesden,15.72
+Kensal Green,15.89
+Kenton,14.91
+Kilburn,15.71
+Mapesbury,15.44
+Northwick Park,14.99
+Preston,15.07
+Queens Park,15.61
+Queensbury,14.93
+Stonebridge,15.78
+Sudbury,15.13
+Tokyngton,15.36
+Welsh Harp,15.59
+Wembley Central,15.18
+Willesden Green,15.51
+Bickley,14.77
+Biggin Hill,14.37
+Bromley Common and Keston,14.62
+Bromley Town,14.94
+Chelsfield and Pratts Bottom,14.42
+Chislehurst,14.72
+Clock House,14.96
+Copers Cope,14.94
+Cray Valley East,14.51
+Cray Valley West,14.66
+Crystal Palace,15.07
+Darwin,14.36
+Farnborough and Crofton,14.55
+Hayes and Coney Hall,14.61
+Kelsey and Eden Park,14.86
+Mottingham and Chislehurst North,14.83
+Orpington,14.54
+Penge and Cator,14.99
+Petts Wood and Knoll,14.56
+Plaistow and Sundridge,14.8
+Shortlands,14.82
+West Wickham,14.75
+Belsize,15.86
+Bloomsbury,17.54
+Camden Town with Primrose Hill,16.21
+Cantelowes,16.53
+Fortune Green,15.7
+Frognal and Fitzjohns,15.73
+Gospel Oak,15.85
+Hampstead Town,15.49
+Haverstock,15.88
+Highgate,15.29
+Holborn and Covent Garden,17.18
+Kentish Town,15.99
+Kilburn,15.88
+King's Cross,17.19
+Regent's Park,16.7
+St. Pancras and Somers Town,16.74
+Swiss Cottage,15.84
+West Hampstead,15.84
+Addiscombe,15.08
+Ashburton,14.93
+Bensham Manor,15.08
+Broad Green,15.38
+Coulsdon East,14.49
+Coulsdon West,14.8
+Croham,14.99
+Fairfield,15.16
+Fieldway,14.55
+Heathfield,14.66
+Kenley,14.62
+New Addington,14.48
+Norbury,15.09
+Purley,15
+Sanderstead,14.62
+Selhurst,15.17
+Selsdon and Ballards,14.63
+Shirley,14.72
+South Norwood,15.06
+Thornton Heath,15.17
+Upper Norwood,15.1
+Waddon,15.22
+West Thornton,15.28
+Woodside,14.93
+Acton Central,15.88
+Cleveland,15.38
+Dormers Wells,15.29
+Ealing Broadway,15.69
+Ealing Common,15.74
+East Acton,16.04
+Elthorne,15.44
+Greenford Broadway,15.13
+Greenford Green,15.17
+Hanger Hill,15.92
+Hobbayne,15.17
+Lady Margaret,15.04
+Northfield,15.35
+North Greenford,15.05
+Northolt Mandeville,15.02
+Northolt West End,14.98
+Norwood Green,15.37
+Perivale,15.33
+South Acton,15.52
+Southall Broadway,15.54
+Southall Green,15.34
+Southfield,15.34
+Walpole,15.27
+Bowes,15.52
+Bush Hill Park,14.99
+Chase,14.72
+Cockfosters,14.62
+Edmonton Green,15.61
+Enfield Highway,14.8
+Enfield Lock,14.92
+Grange,14.81
+Haselbury,15.27
+Highlands,14.64
+Jubilee,14.88
+Lower Edmonton,15
+Palmers Green,15.35
+Ponders End,14.93
+Southbury,14.95
+Southgate,14.88
+Southgate Green,15.25
+Town,14.78
+Turkey Street,15.13
+Upper Edmonton,15.76
+Winchmore Hill,14.88
+Abbey Wood,14.83
+Blackheath Westcombe,15.62
+Charlton,15.44
+Coldharbour and New Eltham,15
+Eltham North,15.35
+Eltham South,14.93
+Eltham West,15.55
+Glyndon,15.05
+Greenwich West,15.73
+Kidbrooke with Hornfair,15.25
+Middle Park and Sutcliffe,15.19
+Peninsula,16.17
+Plumstead,14.87
+Shooters Hill,14.86
+Thamesmead Moorings,14.9
+Woolwich Common,15.09
+Woolwich Riverside,15.44
+Brownswood,15.65
+Cazenove,15.39
+Chatham,15.89
+Clissold,15.46
+Dalston,15.75
+De Beauvoir,15.75
+Hackney Central,15.83
+Hackney Downs,15.49
+Haggerston,16.21
+Hoxton,16.15
+King's Park,15.4
+Leabridge,15.49
+Lordship,15.37
+New River,15.53
+Queensbridge,15.63
+Springfield,15.24
+Stoke Newington Central,15.7
+Victoria,15.81
+Wick,16.59
+Addison,15.73
+Askew,15.61
+Avonmore and Brook Green,16.03
+College Park and Old Oak,15.94
+Fulham Broadway,15.63
+Fulham Reach,15.69
+Hammersmith Broadway,16.42
+Munster,15.51
+North End,16.03
+Palace Riverside,15.33
+Parsons Green and Walham,15.88
+Ravenscourt Park,15.76
+Sands End,15.56
+Shepherd's Bush Green,15.86
+Town,15.68
+Wormholt and White City,15.84
+Alexandra,15.09
+Bounds Green,15.29
+Bruce Grove,15.33
+Crouch End,15.25
+Fortis Green,15.18
+Harringay,15.55
+Highgate,15.33
+Hornsey,15.24
+Muswell Hill,15.22
+Noel Park,15.37
+Northumberland Park,15.19
+St. Ann's,15.46
+Seven Sisters,15.43
+Stroud Green,15.27
+Tottenham Green,15.62
+Tottenham Hale,15.41
+West Green,15.27
+White Hart Lane,15.29
+Woodside,15.23
+Belmont,14.79
+Canons,14.72
+Edgware,14.89
+Greenhill,15.08
+Harrow on the Hill,14.97
+Harrow Weald,14.67
+Hatch End,14.67
+Headstone North,14.73
+Headstone South,14.92
+Kenton East,14.96
+Kenton West,14.84
+Marlborough,14.86
+Pinner,14.6
+Pinner South,14.7
+Queensbury,14.93
+Rayners Lane,14.74
+Roxbourne,14.84
+Roxeth,14.93
+Stanmore Park,14.65
+Wealdstone,14.79
+West Harrow,14.87
+Brooklands,14.81
+Cranham,14.67
+Elm Park,14.58
+Emerson Park,14.51
+Gooshays,14.57
+Hacton,14.48
+Harold Wood,14.58
+Havering Park,14.4
+Heaton,14.58
+Hylands,14.61
+Mawneys,14.64
+Pettits,14.66
+Rainham and Wennington,14.66
+Romford Town,14.85
+St. Andrew's,14.53
+South Hornchurch,14.86
+Squirrel's Heath,14.7
+Upminster,14.44
+Barnhill,14.85
+Botwell,15.16
+Brunel,14.84
+Cavendish,14.66
+Charville,14.72
+Eastcote and East Ruislip,14.63
+Harefield,14.39
+Heathrow Villages,15.66
+Hillingdon East,14.84
+Ickenham,14.81
+Manor,14.77
+Northwood,14.45
+Northwood Hills,14.59
+Pinkwell,15.52
+South Ruislip,14.83
+Townfield,15.26
+Uxbridge North,14.94
+Uxbridge South,14.79
+West Drayton,15.17
+West Ruislip,14.61
+Yeading,14.98
+Yiewsley,14.97
+Bedfont,15.12
+Brentford,15.78
+Chiswick Homefields,15.48
+Chiswick Riverside,15.55
+Cranford,15.42
+Feltham North,15.23
+Feltham West,14.81
+Hanworth,15.01
+Hanworth Park,14.91
+Heston Central,15.39
+Heston East,15.34
+Heston West,15.5
+Hounslow Central,15.09
+Hounslow Heath,14.98
+Hounslow South,14.97
+Hounslow West,15.16
+Isleworth,15.14
+Osterley and Spring Grove,15.24
+Syon,15.22
+Turnham Green,15.88
+Barnsbury,16.05
+Bunhill,16.61
+Caledonian,16.14
+Canonbury,15.75
+Clerkenwell,16.61
+Finsbury Park,15.87
+Highbury East,15.69
+Highbury West,15.78
+Hillrise,15.42
+Holloway,15.98
+Junction,15.83
+Mildmay,15.75
+St. George's,15.75
+St. Mary's,16.09
+St. Peter's,16
+Tollington,15.57
+Abingdon,16.31
+Brompton,16.78
+Campden,15.97
+Colville,15.85
+Courtfield,16.42
+Cremorne,16.33
+Earl's Court,16.65
+Golborne,16.18
+Hans Town,16.14
+Holland,15.92
+Norland,15.89
+Notting Barns,16.27
+Pembridge,15.87
+Queen's Gate,16.05
+Redcliffe,15.93
+Royal Hospital,16.26
+St. Charles,15.9
+Stanley,16.17
+Alexandra,15.03
+Berrylands,14.99
+Beverley,14.95
+Canbury,15.02
+Chessington North and Hook,14.89
+Chessington South,14.69
+Coombe Hill,15.04
+Coombe Vale,14.92
+Grove,15.37
+Norbiton,15.23
+Old Malden,14.96
+St. James,15.27
+St. Mark's,14.94
+Surbiton Hill,14.93
+Tolworth and Hook Rise,15.12
+Tudor,14.94
+Bishop's,16.5
+Brixton Hill,15.58
+Clapham Common,15.67
+Clapham Town,15.96
+Coldharbour,15.81
+Ferndale,15.79
+Gipsy Hill,15.22
+Herne Hill,15.64
+Knight's Hill,15.23
+Larkhall,15.81
+Oval,16.56
+Prince's,16.25
+St. Leonard's,15.51
+Stockwell,15.91
+Streatham Hill,15.45
+Streatham South,15.22
+Streatham Wells,15.39
+Thornton,15.53
+Thurlow Park,15.54
+Tulse Hill,15.53
+Vassall,15.79
+Bellingham,15.05
+Blackheath,15.5
+Brockley,15.69
+Catford South,15.03
+Crofton Park,15.35
+Downham,14.97
+Evelyn,15.57
+Forest Hill,15.27
+Grove Park,14.98
+Ladywell,15.28
+Lee Green,15.18
+Lewisham Central,15.49
+New Cross,15.63
+Perry Vale,15.16
+Rushey Green,15.39
+Sydenham,15.15
+Telegraph Hill,15.52
+Whitefoot,15.07
+Abbey,15.38
+Cannon Hill,14.96
+Colliers Wood,15.34
+Cricket Green,15.3
+Dundonald,15.3
+Figge's Marsh,15.45
+Graveney,15.15
+Hillside,15.16
+Lavender Fields,15.21
+Longthornton,15.1
+Lower Morden,14.93
+Merton Park,15.23
+Pollards Hill,15.17
+Ravensbury,15.35
+Raynes Park,15.13
+St. Helier,15.02
+Trinity,15.13
+Village,15
+West Barnes,15.1
+Wimbledon Park,15.3
+Beckton,15.28
+Boleyn,15.15
+Canning Town North,15.52
+Canning Town South,15.88
+Custom House,15.6
+East Ham Central,15.3
+East Ham North,15.12
+East Ham South,15.79
+Forest Gate North,15.29
+Forest Gate South,15.42
+Green Street East,15.28
+Green Street West,15.27
+Little Ilford,15.24
+Manor Park,15.21
+Plaistow North,15.35
+Plaistow South,15.59
+Royal Docks,15.39
+Stratford and New Town,15.76
+Wall End,15.46
+West Ham,15.47
+Aldborough,14.75
+Barkingside,15.12
+Bridge,14.99
+Chadwell,15.01
+Church End,15.48
+Clayhall,15.22
+Clementswood,15.22
+Cranbrook,15.37
+Fairlop,14.73
+Fullwell,14.85
+Goodmayes,15.02
+Hainault,14.55
+Loxford,15.44
+Mayfield,14.91
+Monkhams,14.86
+Newbury,15.18
+Roding,15.75
+Seven Kings,15.06
+Snaresbrook,15.33
+Valentines,15.2
+Wanstead,15.3
+Barnes,15.28
+East Sheen,15
+Fulwell and Hampton Hill,15.02
+Ham Petersham & Richmond Riversi,14.89
+Hampton,14.81
+Hampton North,14.83
+Hampton Wick,14.83
+Heathfield,15.03
+Kew,15.19
+Mortlake and Barnes Common,15.37
+North Richmond,15.2
+St. Margarets & North Twickenham,15.33
+South Richmond,15.13
+South Twickenham,14.97
+Teddington,14.81
+Twickenham Riverside,15.05
+West Twickenham,15
+Whitton,15.07
+Brunswick Park,15.82
+Camberwell Green,15.97
+Cathedrals,16.61
+Chaucer,16.52
+College,15.27
+East Dulwich,15.41
+East Walworth,16.14
+Faraday,15.79
+Grange,16.06
+Livesey,15.71
+Newington,15.93
+Nunhead,15.45
+Peckham,15.66
+Peckham Rye,15.29
+Riverside,16
+Rotherhithe,15.72
+South Bermondsey,15.99
+South Camberwell,15.5
+Surrey Docks,15.35
+The Lane,15.67
+Village,15.44
+Beddington North,15.04
+Beddington South,14.85
+Belmont,14.91
+Carshalton Central,14.96
+Carshalton South and Clockhouse,14.71
+Cheam,14.93
+Nonsuch,14.84
+St. Helier,15.07
+Stonecot,14.98
+Sutton Central,14.96
+Sutton North,14.92
+Sutton South,14.78
+Sutton West,15.02
+The Wrythe,14.9
+Wallington North,15.06
+Wallington South,15.02
+Wandle Valley,15.1
+Worcester Park,14.84
+Bethnal Green North,15.92
+Bethnal Green South,15.88
+Blackwall and Cubitt Town,16.11
+Bow East,16.31
+Bow West,15.7
+Bromley-by-Bow,16.27
+East India and Lansbury,16.28
+Limehouse,16.25
+Mile End and Globe Town,15.81
+Mile End East,15.74
+Millwall,15.56
+St. Dunstan's and Stepney Green,15.65
+St. Katherine's and Wapping,16.13
+Shadwell,16.44
+Spitalfields and Banglatown,16.37
+Weavers,15.9
+Whitechapel,16.32
+Cann Hall,15.27
+Cathall,15.86
+Chapel End,15.33
+Chingford Green,14.69
+Endlebury,14.87
+Forest,15.26
+Grove Green,15.75
+Hale End and Highams Park,15.21
+Hatch Lane,14.82
+High Street,15.06
+Higham Hill,15.15
+Hoe Street,15.15
+Larkswood,14.97
+Lea Bridge,15.24
+Leyton,15.46
+Leytonstone,16.48
+Markhouse,15.06
+Valley,15.66
+William Morris,15.13
+Wood Street,15.17
+Balham,15.57
+Bedford,15.43
+Earlsfield,15.46
+East Putney,15.56
+Fairfield,16.12
+Furzedown,15.27
+Graveney,15.44
+Latchmere,16.08
+Nightingale,15.51
+Northcote,15.71
+Queenstown,16.01
+Roehampton,15.2
+St. Mary's Park,15.95
+Shaftesbury,15.87
+Southfields,15.47
+Thamesfield,15.48
+Tooting,15.32
+Wandsworth Common,15.48
+West Hill,15.18
+West Putney,15.17
+Abbey Road,15.83
+Bayswater,16.66
+Bryanston and Dorset Square,17.71
+Churchill,16.34
+Church Street,16.45
+Harrow Road,15.97
+Hyde Park,17.28
+Knightsbridge and Belgravia,16.32
+Lancaster Gate,15.98
+Little Venice,16.38
+Maida Vale,15.58
+Marylebone High Street,17.69
+Queen's Park,15.65
+Regent's Park,16.06
+St. James's,17.35
+Tachbrook,16.47
+Vincent Square,16.7
+Warwick,16.77
+Westbourne,16.69
+West End,17.41

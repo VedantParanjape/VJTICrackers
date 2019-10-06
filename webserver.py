@@ -6,3 +6,5 @@ from app.models import Patient, Doctor, PatientHistory
 def make_shell_context():
     return {'db': db, 'Patient': Patient, 'Doctor': Doctor, 'PatientHistory': PatientHistory}
 
+if __name__ == "__main__":
+    app.run(debug=True)
