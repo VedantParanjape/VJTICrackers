@@ -52,9 +52,19 @@
                 </ul>
                 <ul class="sidenav grey lighten-2" id="mobile-menu">
                         <li><a href="/about">About</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        {% if current_user.is_authenticated  %}
+                            <li>{{current_user.name}}</li>
+                            {% if current_user.role == "d" %}
+                            <li><a href="/view_patient_history">Patient History</a></li>
+                            {% else %}
+                            <li><a href="/generate_otp">Generate OTP</a></li>
+                            {% endif %}
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        {% else %}
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Sign Up</a></li>
+                        {% endif %}
                 </ul>
             </div>
         </nav>

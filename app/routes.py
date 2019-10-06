@@ -191,5 +191,10 @@ def view_patient_history():
         return render_template('validate_otp.html', otpform=otpform)
 
     patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()
+    if patient:
+        return render_template('patient_history.html')
 
-    return render_template('patient_history.html')
+@app.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html')
