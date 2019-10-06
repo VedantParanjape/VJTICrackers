@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   <!-- <link rel="stylesheet" href="language.css"> -->
-  <title>VJTI Crackers</title>
+  <title>HealthSync-{{title}}</title>
   <style>
     
   </style>
@@ -26,7 +26,6 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/about">About</a></li>
                     {% if current_user.is_authenticated  %}
                         <li>{{current_user.name}}</li>
                         {% if current_user.role == "d" %}
@@ -80,7 +79,7 @@
             <div class="row">
                 <div class="col s12 l6">
                     <h5>About us</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p>A web app for centralisation of patients' medical history, irrespective of his/her location, hospital visited, doctors consulted, making it easier than ever to access his/her medical records and get a clear picture of the entire health history. Multiple doctors can register with this webapp and after getting permission from a user, a particular doctor can access the medical history of the patient. Further, risk assessment based on patient history and location will be implemented, using Machine Learning. </p>
                 </div>
                 <div class="col s12 l4 offset-l2">
                     <h5>Connect</h5>

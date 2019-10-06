@@ -2,7 +2,7 @@
 {% block content %}
     <div class="parallax-container">
         <div class="parallax">
-            <img src="https://cdn.pixabay.com/photo/2018/04/23/11/13/computer-3343887_960_720.jpg" alt="home_doc" class="responsive-img">
+            <img src="{{url_for('static', filename='large.jpg')}}" alt="home_doc" class="responsive-img">
         </div>
     </div>
 
@@ -12,21 +12,21 @@
                 <img src="{{url_for('static', filename='portrait.jpg')}}" alt="" class="responsive-img materialboxed">
             </div>
             <div class="col s12 l6 offset-l1">
-                <h2 class="indigo-text text-darken-4">What we do</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </p>
+                <h3 class="indigo-text text-darken-4">Never lose your medical records</h3>
+                <h5>
+                    Store your medical records on this platform, and have them with you anytime, anywhere.
+                </h5>
             </div>
         </div>
         <div class="row">
             <div class="col s12 l4 push-l7 offset-l1">
-                <img src="{{url_for('static', filename='city.jpg')}}" alt="" class="responsive-img materialboxed">
+                <img src="{{url_for('static', filename='healthcare.jpg')}}" alt="" class="responsive-img materialboxed">
             </div>
             <div class="col s12 l6 pull-l5 offset-l1 right-align">
-                <h2 class="indigo-text text-darken-4">Heathcare at your fingertips</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </p>
+                <h3 class="indigo-text text-darken-4">Heathcare at your fingertips</h3>
+                <h5>
+                    Consult your doctors within seconds, and they can view your entire medical history effortlessly.
+                </h5>
             </div>
         </div>
         <div class="row">
@@ -34,10 +34,10 @@
                 <img src="{{url_for('static', filename='nature.jpg')}}" alt="" class="responsive-img materialboxed">
             </div>
             <div class="col s12 l6 offset-l1">
-                <h2 class="indigo-text text-darken-4">Simple and safe</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </p>
+                <h3 class="indigo-text text-darken-4">Doctors, this is <em>your</em> lifesaver!</h3>
+                <h5>
+                    Without having to schedule routine appointments, you can view your patients' data simply by your doctor account
+                </h5>
             </div>
         </div>
     </section>

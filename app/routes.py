@@ -11,11 +11,8 @@ from sqlalchemy.exc import IntegrityError
 @app.route('/', methods=['GET'])
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', title='Home')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
 @app.route('/login', methods=['GET'])
 def login():
@@ -25,7 +22,7 @@ def login():
     form_patient = LoginForm()
     form_doctor = LoginForm()
 
-    return render_template('login.html', form_patient=form_patient, form_doctor=form_doctor)
+    return render_template('login.html', form_patient=form_patient, form_doctor=form_doctor, title='Login')
 
 @app.route('/login_doctor', methods=['POST'])
 def login_doctor():
@@ -100,7 +97,7 @@ def register():
     form_patient = PatientRegistrationForm()
     form_doctor = DoctorRegistrationForm()
 
-    return render_template('register.html', form_patient=form_patient, form_doctor=form_doctor)
+    return render_template('register.html', form_patient=form_patient, form_doctor=form_doctor, title="Sign Up")
 
 @app.route('/register_patient', methods = ['POST'])
 def register_patient():
@@ -155,7 +152,7 @@ def generate_otp():
         db.session.rollback()
         return flash("Otp generation failed, Refresh to Try Again")
 
-    return render_template('generate_otp.html', otp=otp)
+    return render_template('generate_otp.html', otp=otp, title="OTP")
 
 @app.route('/add_patient_data')
 @login_required
@@ -164,7 +161,7 @@ def add_patient_data():
     patient_history = AddPatientHistory()
 
     if request.method == 'GET':
-        return render_template('add_patient_data.html', patient_history=patient_history)
+        return render_template('add_patient_data.html', patient_history=patient_history, title="Add Patient Data")
 
     patient_t = Patient.query.filter_by(otp = patient_history.otp_add.data)
 
@@ -188,13 +185,24 @@ def view_patient_history():
     otpform = AddOtp()
 
     if request.method == 'GET':
-        return render_template('validate_otp.html', otpform=otpform)
+        return render_template('validate_otp.html', otpform=otpform, title='Validate OTP')
 
     patient = Patient.query.filter_by(otp = otpform.otp_verify.data).first()
     if patient:
-        return render_template('patient_history.html')
+        return render_template('patient_history.html', title='Patient History')
 
 @app.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html')
+    return render_template('profile.html', title='Profile')
+
+
+@app.route('/analysis')
+@login_required
+def analysis():
+    if current_user.role == 'd':
+        return render_template('analysis.html', title='Your analysis')
+    else:
+        return redirect(url_for('home'))
+
+
