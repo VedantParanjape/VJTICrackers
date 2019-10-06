@@ -19,9 +19,10 @@
 <body>
 <!-- navbar -->
     <header>
+    <div class="navbar-fixed">
         <nav class="nav-wrapper indigo lighten-2">
             <div class="container">
-                <a href="/home" class="brand-logo">HealthSync</a>
+                <a href="/home" class="brand-logo"><img style="width:150px;" src="{{url_for('static', filename='logo.png')}}"></a>
                 <a href="/home" class="sidenav-trigger" data-target="mobile-menu">
                     <i class="material-icons">menu</i>
                 </a>
@@ -31,6 +32,7 @@
                         {% if current_user.role == "d" %}
                         <li><a href="/view_patient_history">Patient History</a></li>
                         {% else %}
+                        <li><a href="/predict"> Predict </a></li>
                         <li><a href="/generate_otp">Generate OTP</a></li>
                         {% endif %}
                         <li><a href="/profile">Profile</a></li>
@@ -67,6 +69,7 @@
                 </ul>
             </div>
         </nav>
+        </div>
     </header>
 
 {% block content %}

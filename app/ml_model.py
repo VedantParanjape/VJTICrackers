@@ -67,10 +67,12 @@ print(model.predict([[1.8]]))
 
 # Visualising the test set r
 plot.scatter(xTest, yTest, color = 'red')
-fig = plot.plot(xTrain, linearRegressor.predict(xTrain), color = 'blue')
-fig = plot.figure()
+plot.plot(xTrain, linearRegressor.predict(xTrain), color = 'blue')
 plot.title('Deaths vs. PM2.5 (Test set)')
 plot.xlabel('PM2.5')
 plot.ylabel('Deaths(% of population)')
+fig = plot.gcf()
+
+plot.draw()
+fig.savefig('esd.png', dpi=100)
 plot.show()
-mpld3.show(fig)
