@@ -205,8 +205,8 @@ def view_patient_history():
 @app.route('/profile')
 @login_required
 def profile():
-
-    return render_template('profile.html', title='Profile')
+    patient_history = PatientHistory.query.filter_by(patient_id=current_user.id).all()
+    return render_template('profile.html', title='Profile', patient_history=patient_history)
 
 @app.route('/predict',methods=['POST', 'GET'])
 def predict():
