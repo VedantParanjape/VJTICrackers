@@ -6,11 +6,11 @@ In cases such as these, a system that integrates all parties seamlessly is the n
 
 **What does *HealthSync* do?**
 The HealthSync website has all these primary goals:
--To centralise all the records of the patient in one place
--To ensure authenticity of the data input by allowing only the doctor to update the patient's medical records.
--To protect privacy of user by introducing an OTP that allows doctor to make edits.
--Aids the doctor to make diagnosis based on the PM 2.5 data which affects health.
--Minimal and aesthetic design to make it user-friendly for everybody.
+- To centralise all the records of the patient in one place
+- To ensure authenticity of the data input by allowing only the doctor to update the patient's medical records.
+- To protect privacy of user by introducing an OTP that allows doctor to make edits.
+- Aids the doctor to make diagnosis based on the PM 2.5 data which affects health.
+- Minimal and aesthetic design to make it user-friendly for everybody.
 
 Features like these and more help the doctor and patient to exchange data with ease so that time is spent on what matters the most, the remedy.
 
