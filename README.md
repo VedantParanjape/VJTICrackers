@@ -25,8 +25,8 @@ Features like these and more help the doctor and patient to exchange data with e
 
 **Challenges we ran into**
 The main challenge was to find a way to handle two different categories of users: doctors and patients in the backend database. 
->This was solved by making a custom login interface that handled role-based authentication.<
-The other challenge was to deploy ML in the website to give accurate results. 
+>This was solved by making a custom login interface that handled role-based authentication.
+>The other challenge was to deploy ML in the website to give accurate results. 
 >This was solved by using a UK government database relating deaths and the PM 2.5 pollution in different locations and applying >linear regression to it using the scikit-learn library in Python along with visualisation tools like Matplotlib.
 The timeline UI to show medical history was a challenge in on the front-end side especially as it has to be dynamically updated according to the amount of data added previously.
 >This was solved by using a custom CSS package and tweaking it to suit our purposes.
