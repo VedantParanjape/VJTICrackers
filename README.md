@@ -43,7 +43,7 @@ The main challenge was to find a way to handle two different categories of users
 - BCrypt for password hashing
 
 **Contributors**
-* [Bhavya Sheth](https://github.com/BhavyaSheth22)vvv
+* [Bhavya Sheth](https://github.com/BhavyaSheth22)
 * [Akshat Shah](https://github.com/akshatshah21)
 * [Saharsh Jain](https://github.com/saharshleo)
 * [Vedant Paranjape](https://github.com/VedantParanjape)
